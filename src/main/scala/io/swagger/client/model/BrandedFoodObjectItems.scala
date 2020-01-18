@@ -41,7 +41,7 @@ import java.math.BigDecimal
  * @param hasEnglishIngredients A boolean indicating if we have English ingredients for this item
  * @param minerals An array of minerals that this item contains
  * @param traces An array of trace ingredients that may be found in this item
- * @param vitamins An array of vitamins that can be found in this item
+ * @param vitamins An array of vitamins that are found in this item
  * @param commonName Common names associated with this item. These generally clarify what the item is (e.g. when the brand name is \"BRAND's Spicy Enchilada\" the common name may be \"Chicken enchilada\")
  * @param description A description of this item
  * @param keywords An array of keywords that can be used to describe this item
