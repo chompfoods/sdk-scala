@@ -224,8 +224,8 @@ class DefaultApi(
    * @param limit Set maximum number of records you want the API to return.  ___Important Note:__ Setting this to \&quot;1\&quot; will return 1 record per search term._  __Example:__ 1 _(defaults to 1, max is 3)_  (optional)
    * @return IngredientObject
    */
-  def ingredientSearchPhpGet(find: Integer, list: Boolean, raw: Option[Boolean] = None, limit: Option[Integer] = None): Option[IngredientObject] = {
-    val await = Try(Await.result(ingredientSearchPhpGetAsync(find, list, raw, limit), Duration.Inf))
+  def foodIngredientSearchPhpGet(find: Integer, list: Boolean, raw: Option[Boolean] = None, limit: Option[Integer] = None): Option[IngredientObject] = {
+    val await = Try(Await.result(foodIngredientSearchPhpGetAsync(find, list, raw, limit), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
       case Failure(t) => None
@@ -242,8 +242,8 @@ class DefaultApi(
    * @param limit Set maximum number of records you want the API to return.  ___Important Note:__ Setting this to \&quot;1\&quot; will return 1 record per search term._  __Example:__ 1 _(defaults to 1, max is 3)_  (optional)
    * @return Future(IngredientObject)
    */
-  def ingredientSearchPhpGetAsync(find: Integer, list: Boolean, raw: Option[Boolean] = None, limit: Option[Integer] = None): Future[IngredientObject] = {
-      helper.ingredientSearchPhpGet(find, list, raw, limit)
+  def foodIngredientSearchPhpGetAsync(find: Integer, list: Boolean, raw: Option[Boolean] = None, limit: Option[Integer] = None): Future[IngredientObject] = {
+      helper.foodIngredientSearchPhpGet(find, list, raw, limit)
   }
 
 }
@@ -399,13 +399,13 @@ class DefaultApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
     }
   }
 
-  def ingredientSearchPhpGet(find: Integer,
+  def foodIngredientSearchPhpGet(find: Integer,
     list: Boolean,
     raw: Option[Boolean] = None,
     limit: Option[Integer] = None
     )(implicit reader: ClientResponseReader[IngredientObject]): Future[IngredientObject] = {
     // create path and map variables
-    val path = (addFmt("/ingredient/search.php"))
+    val path = (addFmt("/food/ingredient/search.php"))
 
     // query params
     val queryParams = new mutable.HashMap[String, String]
