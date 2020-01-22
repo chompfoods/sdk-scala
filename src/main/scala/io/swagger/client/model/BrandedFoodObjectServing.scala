@@ -16,14 +16,12 @@ package io.swagger.client.model
 /**
  * An object containing serving information for this item
  *
- * @param size Serving size
- * @param measurementUnit Serving measurement unit (e.g. if measure is 3 tsp, the unit is tsp)
+ * @param size Serving size with measurement unit (e.g. if measure is 3 tsp, the unit is tsp)
  * @param sizeFulltext Serving size description
  * @param total Total servings
  */
 case class BrandedFoodObjectServing (
-  size: Option[Integer],
-  measurementUnit: Option[String],
+  size: Option[String],
   sizeFulltext: Option[String],
   total: Option[Integer]
 )
