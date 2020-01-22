@@ -14,13 +14,13 @@ package io.swagger.client.model
 
 
 /**
- * An object containing basic packaging information about this item
+ * An object containing this item's ingredients in order of highest value to least
  *
- * @param quantity Package quantity
- * @param size Package size
+ * @param chomp This item's ingredients as seen on ChompThis.com
+ * @param usda This branded food item's ingredients according to the USDA
  */
-case class BrandedFoodObjectPackage (
-  quantity: Option[Integer],
-  size: Option[String]
+case class BrandedFoodObjectIngredients (
+  chomp: Option[String],
+  usda: Option[String]
 )
 

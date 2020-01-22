@@ -20,7 +20,7 @@ import java.math.BigDecimal
  * @param barcode EAN/UPC barcode
  * @param name Item name as provided by brand owner or as shown on packaging
  * @param brand The brand name that owns this item
- * @param ingredients Ingredients in order of highest value to least
+ * @param ingredients 
  * @param `package` 
  * @param serving 
  * @param categories 
@@ -51,7 +51,7 @@ case class BrandedFoodObjectItems (
   barcode: Option[String],
   name: Option[String],
   brand: Option[String],
-  ingredients: Option[String],
+  ingredients: Option[BrandedFoodObject_ingredients],
   `package`: Option[BrandedFoodObject_package],
   serving: Option[BrandedFoodObject_serving],
   categories: Option[List[String]],
