@@ -14,13 +14,15 @@ package io.swagger.client.model
 
 
 /**
- * An object containing serving information for this item
+ * Serving information from the USDA
  *
- * @param chomp 
- * @param usda 
+ * @param size Serving size
+ * @param measurementUnit Measurement unit for each serving (e.g. if measure is 3 tsp, the unit is tsp)
+ * @param sizeFulltext Serving size description
  */
-case class BrandedFoodObjectServing (
-  chomp: Option[BrandedFoodObject_serving_chomp],
-  usda: Option[BrandedFoodObject_serving_usda]
+case class BrandedFoodObjectServingUsda (
+  size: Option[String],
+  measurementUnit: Option[String],
+  sizeFulltext: Option[String]
 )
 
