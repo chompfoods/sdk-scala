@@ -15,31 +15,19 @@ package io.swagger.client.model
 import java.math.BigDecimal
 
 /**
- * An object containing information for this specific item.
+ * An object containing information on a specific component of this food item
  *
- * @param name Item name as provided by brand owner or as shown on packaging
- * @param categories 
- * @param nutrients 
- * @param calorieConversionFactor 
- * @param proteinConversionFactor The multiplication factor used to calculate protein from nitrogen
- * @param dietLabels 
- * @param components An array of objects containing the constituent parts of a food (e.g. bone is a component of meat)
- * @param portions An array of objects containing information on discrete amounts of a food found in this item
- * @param commonNames Common names associated with this item. These generally clarify what the item is (e.g. when the brand name is \"BRAND's Spicy Enchilada\" the common name may be \"Chicken enchilada\")
- * @param description A description of this item
- * @param footnote Comments on any unusual aspects of this item. Examples might include unusual aspects of the food overall.
+ * @param name The kind of component, e.g. bone
+ * @param pctWeight The weight of the component as a percentage of the total weight of the food
+ * @param gramWeight The weight of the component in grams
+ * @param isRefuse Whether the component is refuse, i.e. not edible
+ * @param dataPoints The number of obersvations on which the measure is based
  */
-case class IngredientObjectItems (
+case class IngredientObjectComponents (
   name: Option[String],
-  categories: Option[List[String]],
-  nutrients: Option[IngredientObject_nutrients],
-  calorieConversionFactor: Option[BrandedFoodObject_calorie_conversion_factor],
-  proteinConversionFactor: Option[BigDecimal],
-  dietLabels: Option[BrandedFoodObject_diet_labels],
-  components: Option[List[IngredientObject_components]],
-  portions: Option[List[IngredientObject_portions]],
-  commonNames: Option[String],
-  description: Option[String],
-  footnote: Option[String]
+  pctWeight: Option[BigDecimal],
+  gramWeight: Option[BigDecimal],
+  isRefuse: Option[Boolean],
+  dataPoints: Option[Integer]
 )
 

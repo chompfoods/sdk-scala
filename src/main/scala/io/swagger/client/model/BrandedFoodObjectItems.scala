@@ -30,8 +30,6 @@ import java.math.BigDecimal
  * @param dietLabels 
  * @param dietFlags An array of ingredient objects that were flagged while grading this item for compatibility with each diet
  * @param packagingPhotos 
- * @param components An array of objects containing the constituent parts of a food (e.g. bone is a component of meat)
- * @param portions An array of objects containing information on discrete amounts of a food found in this item
  * @param allergens An array of ingredients in this item that may cause allergic reactions in people
  * @param brandList An array of brands we have associated with this item. Some items are sold by more than 1 brand.
  * @param countries An array of countries where this item is sold
@@ -60,8 +58,6 @@ case class BrandedFoodObjectItems (
   dietLabels: Option[BrandedFoodObject_diet_labels],
   dietFlags: Option[List[BrandedFoodObject_diet_flags]],
   packagingPhotos: Option[BrandedFoodObject_packaging_photos],
-  components: Option[List[BrandedFoodObject_components]],
-  portions: Option[List[BrandedFoodObject_portions]],
   allergens: Option[List[String]],
   brandList: Option[List[String]],
   countries: Option[List[String]],

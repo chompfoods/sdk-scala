@@ -15,31 +15,21 @@ package io.swagger.client.model
 import java.math.BigDecimal
 
 /**
- * An object containing information for this specific item.
+ * An object containing information on a specific food portion found in this item
  *
- * @param name Item name as provided by brand owner or as shown on packaging
- * @param categories 
- * @param nutrients 
- * @param calorieConversionFactor 
- * @param proteinConversionFactor The multiplication factor used to calculate protein from nitrogen
- * @param dietLabels 
- * @param components An array of objects containing the constituent parts of a food (e.g. bone is a component of meat)
- * @param portions An array of objects containing information on discrete amounts of a food found in this item
- * @param commonNames Common names associated with this item. These generally clarify what the item is (e.g. when the brand name is \"BRAND's Spicy Enchilada\" the common name may be \"Chicken enchilada\")
- * @param description A description of this item
- * @param footnote Comments on any unusual aspects of this item. Examples might include unusual aspects of the food overall.
+ * @param measurementUnit The unit used for measure (e.g. if mesure is 3 tsp, the unit is tsp)
+ * @param description Comments that provide more specificity on the measure. For example, for a pizza measure the dissemination text might be 1 slice is 1/8th of a 14 inch pizza.
+ * @param modifier Qualifier of the measure (e.g. related to food shape or form) (e.g. melted, crushed, diced)
+ * @param gramWeight The weight of the measure in grams
+ * @param dataPoints The number of observations on which the measure is based
+ * @param footnote Comments on any unusual aspects of the measure. Examples might includes caveats on the usage of a measure, or reasons why a measure gram weight is an unexpected value.
  */
-case class IngredientObjectItems (
-  name: Option[String],
-  categories: Option[List[String]],
-  nutrients: Option[IngredientObject_nutrients],
-  calorieConversionFactor: Option[BrandedFoodObject_calorie_conversion_factor],
-  proteinConversionFactor: Option[BigDecimal],
-  dietLabels: Option[BrandedFoodObject_diet_labels],
-  components: Option[List[IngredientObject_components]],
-  portions: Option[List[IngredientObject_portions]],
-  commonNames: Option[String],
+case class IngredientObjectPortions (
+  measurementUnit: Option[String],
   description: Option[String],
+  modifier: Option[String],
+  gramWeight: Option[BigDecimal],
+  dataPoints: Option[Integer],
   footnote: Option[String]
 )
 
