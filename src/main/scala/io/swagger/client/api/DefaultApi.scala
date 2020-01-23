@@ -107,34 +107,6 @@ class DefaultApi(
   }
 
   /**
-   * Get a branded food item using an ID number
-   * ## Get data for a branded food using Chomp&#39;s internal ID number.  **Example** &gt; &#x60;&#x60;&#x60;https://chompthis.com/api/v2/food/branded/id.php?api_key&#x3D;API_KEY&amp;id&#x3D;ID&#x60;&#x60;&#x60;  **Tips**   * Find a food&#39;s ID by using our **[food lookup tool](https://chompthis.com/api/lookup.php)**.   * Alternatively, set the \&quot;source\&quot; parameter to \&quot;USDA\&quot; and use the food&#39;s FDC ID. 
-   *
-   * @param id #### The ID number of a branded food item.  **Example #1: Using Chomp ID** &gt; &#x60;&#x60;&#x60;&amp;id&#x3D;15&#x60;&#x60;&#x60;  **Example #2: Using FDC ID** &gt; &#x60;&#x60;&#x60;&amp;id&#x3D;FDC_ID&amp;source&#x3D;USDA&#x60;&#x60;&#x60;  
-   * @param source #### Configure the endpoint to accept food IDs from various data sources. This endpoint defaults to Chomp but can accept FDC IDs.  **Example** &gt; &#x60;&#x60;&#x60;&amp;source&#x3D;Chomp&#x60;&#x60;&#x60;  **Tips**   * Pass in &#x60;&#x60;&#x60;&amp;source&#x3D;USDA&#x60;&#x60;&#x60; if you want to look up food items using a USDA FDC ID.  (optional)
-   * @return BrandedFoodObject
-   */
-  def foodBrandedIdPhpGet(id: Integer, source: Option[String] = None): Option[BrandedFoodObject] = {
-    val await = Try(Await.result(foodBrandedIdPhpGetAsync(id, source), Duration.Inf))
-    await match {
-      case Success(i) => Some(await.get)
-      case Failure(t) => None
-    }
-  }
-
-  /**
-   * Get a branded food item using an ID number asynchronously
-   * ## Get data for a branded food using Chomp&#39;s internal ID number.  **Example** &gt; &#x60;&#x60;&#x60;https://chompthis.com/api/v2/food/branded/id.php?api_key&#x3D;API_KEY&amp;id&#x3D;ID&#x60;&#x60;&#x60;  **Tips**   * Find a food&#39;s ID by using our **[food lookup tool](https://chompthis.com/api/lookup.php)**.   * Alternatively, set the \&quot;source\&quot; parameter to \&quot;USDA\&quot; and use the food&#39;s FDC ID. 
-   *
-   * @param id #### The ID number of a branded food item.  **Example #1: Using Chomp ID** &gt; &#x60;&#x60;&#x60;&amp;id&#x3D;15&#x60;&#x60;&#x60;  **Example #2: Using FDC ID** &gt; &#x60;&#x60;&#x60;&amp;id&#x3D;FDC_ID&amp;source&#x3D;USDA&#x60;&#x60;&#x60;  
-   * @param source #### Configure the endpoint to accept food IDs from various data sources. This endpoint defaults to Chomp but can accept FDC IDs.  **Example** &gt; &#x60;&#x60;&#x60;&amp;source&#x3D;Chomp&#x60;&#x60;&#x60;  **Tips**   * Pass in &#x60;&#x60;&#x60;&amp;source&#x3D;USDA&#x60;&#x60;&#x60; if you want to look up food items using a USDA FDC ID.  (optional)
-   * @return Future(BrandedFoodObject)
-   */
-  def foodBrandedIdPhpGetAsync(id: Integer, source: Option[String] = None): Future[BrandedFoodObject] = {
-      helper.foodBrandedIdPhpGet(id, source)
-  }
-
-  /**
    * Get a branded food item by name
    * ## Search for branded food items by name.  **Example** &gt; &#x60;&#x60;&#x60;https://chompthis.com/api/v2/food/branded/name.php?api_key&#x3D;API_KEY&amp;name&#x3D;NAME&#x60;&#x60;&#x60;  **Tips**   * Get started by using our **[food lookup tool](https://chompthis.com/api/lookup.php)**.  &gt; This API endpoint is only available to Standard and Premium API subscribers. Please consider upgrading your subscription if you are subscribed to the Limited plan. **[Read this](https://desk.zoho.com/portal/chompthis/kb/articles/can-i-upgrade-downgrade-my-subscription)** if you aren&#39;t sure how to upgrade your subscription. 
    *
@@ -263,28 +235,6 @@ class DefaultApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
     if (code == null) throw new Exception("Missing required parameter 'code' when calling DefaultApi->foodBrandedBarcodePhpGet")
 
     queryParams += "code" -> code.toString
-
-    val resFuture = client.submit("GET", path, queryParams.toMap, headerParams.toMap, "")
-    resFuture flatMap { resp =>
-      process(reader.read(resp))
-    }
-  }
-
-  def foodBrandedIdPhpGet(id: Integer,
-    source: Option[String] = None
-    )(implicit reader: ClientResponseReader[BrandedFoodObject]): Future[BrandedFoodObject] = {
-    // create path and map variables
-    val path = (addFmt("/food/branded/id.php"))
-
-    // query params
-    val queryParams = new mutable.HashMap[String, String]
-    val headerParams = new mutable.HashMap[String, String]
-
-    queryParams += "id" -> id.toString
-    source match {
-      case Some(param) => queryParams += "source" -> param.toString
-      case _ => queryParams
-    }
 
     val resFuture = client.submit("GET", path, queryParams.toMap, headerParams.toMap, "")
     resFuture flatMap { resp =>

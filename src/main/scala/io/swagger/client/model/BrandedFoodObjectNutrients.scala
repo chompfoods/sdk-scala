@@ -12,15 +12,24 @@
 
 package io.swagger.client.model
 
+import java.math.BigDecimal
 
 /**
- * An object containing nutrient information from multiple sources
+ * An object containing information for a specific nutrient found in this food item
  *
- * @param chomp An array containing an object for each nutrient data point
- * @param usda An array containing an object for each nutrient data point as found in the USDA database
+ * @param name Nutrient name
+ * @param per100g Amount of the nutrient per 100g of food
+ * @param measurementUnit The unit used for the measure of this nutrient
+ * @param rank Nutrient rank
+ * @param dataPoints Number of observations on which the value is based
+ * @param description Description of the nutrient source
  */
 case class BrandedFoodObjectNutrients (
-  chomp: Option[List[BrandedFoodObject_nutrients_chomp]],
-  usda: Option[List[BrandedFoodObject_nutrients_usda]]
+  name: Option[String],
+  per100g: Option[BigDecimal],
+  measurementUnit: Option[String],
+  rank: Option[Integer],
+  dataPoints: Option[Integer],
+  description: Option[String]
 )
 
