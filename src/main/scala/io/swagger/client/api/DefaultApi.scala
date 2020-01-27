@@ -197,7 +197,7 @@ class DefaultApi(
    * @param limit #### Set maximum number of records you want the API to return, per search term.  **Example** &gt; &#x60;&#x60;&#x60;&amp;limit&#x3D;3&#x60;&#x60;&#x60;  (optional)
    * @return IngredientObject
    */
-  def foodIngredientSearchPhpGet(find: Integer, raw: Option[Boolean] = None, limit: Option[Integer] = None): Option[IngredientObject] = {
+  def foodIngredientSearchPhpGet(find: String, raw: Option[Boolean] = None, limit: Option[Integer] = None): Option[IngredientObject] = {
     val await = Try(Await.result(foodIngredientSearchPhpGetAsync(find, raw, limit), Duration.Inf))
     await match {
       case Success(i) => Some(await.get)
@@ -214,7 +214,7 @@ class DefaultApi(
    * @param limit #### Set maximum number of records you want the API to return, per search term.  **Example** &gt; &#x60;&#x60;&#x60;&amp;limit&#x3D;3&#x60;&#x60;&#x60;  (optional)
    * @return Future(IngredientObject)
    */
-  def foodIngredientSearchPhpGetAsync(find: Integer, raw: Option[Boolean] = None, limit: Option[Integer] = None): Future[IngredientObject] = {
+  def foodIngredientSearchPhpGetAsync(find: String, raw: Option[Boolean] = None, limit: Option[Integer] = None): Future[IngredientObject] = {
       helper.foodIngredientSearchPhpGet(find, raw, limit)
   }
 
@@ -354,7 +354,7 @@ class DefaultApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
     }
   }
 
-  def foodIngredientSearchPhpGet(find: Integer,
+  def foodIngredientSearchPhpGet(find: String,
     raw: Option[Boolean] = None,
     limit: Option[Integer] = None
     )(implicit reader: ClientResponseReader[IngredientObject]): Future[IngredientObject] = {
@@ -364,6 +364,8 @@ class DefaultApiAsyncHelper(client: TransportClient, config: SwaggerConfig) exte
     // query params
     val queryParams = new mutable.HashMap[String, String]
     val headerParams = new mutable.HashMap[String, String]
+
+    if (find == null) throw new Exception("Missing required parameter 'find' when calling DefaultApi->foodIngredientSearchPhpGet")
 
     queryParams += "find" -> find.toString
     raw match {
