@@ -26,6 +26,8 @@ import java.math.BigDecimal
  * @param portions An array of objects containing information on discrete amounts of a food found in this item
  * @param commonName Common name associated with this item. These generally clarify what the item is (e.g. when the brand name is \"BRAND's Spicy Enchilada\" the common name may be \"Chicken enchilada\")
  * @param footnote Comments on any unusual aspects of this item. Examples might include unusual aspects of the food overall.
+ * @param searchTerm The original search term that found this food item.
+ * @param score A value that represents how similar the name of this food item is to the original search term.
  */
 case class IngredientObjectItems (
   name: Option[String],
@@ -36,6 +38,8 @@ case class IngredientObjectItems (
   components: Option[List[IngredientObject_components]],
   portions: Option[List[IngredientObject_portions]],
   commonName: Option[String],
-  footnote: Option[String]
+  footnote: Option[String],
+  searchTerm: Option[String],
+  score: Option[String]
 )
 
