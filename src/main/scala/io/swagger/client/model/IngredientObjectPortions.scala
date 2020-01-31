@@ -12,21 +12,24 @@
 
 package io.swagger.client.model
 
+import java.math.BigDecimal
 
 /**
- * An object containing information on this item's compatibility with Vegetarian diets
+ * An object containing information on a specific food portion found in this item
  *
- * @param name Diet name
- * @param isCompatible Boolean describing if this item is compatible with this diet
- * @param compatibilityLevel Numeric representation of how compatible this item is with this diet. Higher values indicate more compatibility
- * @param confidence Boolean that indicates if we are confident in how this item is graded for this diet
- * @param confidenceDescription Description of our confidence that this item was graded correctly
+ * @param measurementUnit The unit used for measure (e.g. if mesure is 3 tsp, the unit is tsp)
+ * @param description Comments that provide more specificity on the measure. For example, for a pizza measure the dissemination text might be 1 slice is 1/8th of a 14 inch pizza.
+ * @param modifier Qualifier of the measure (e.g. related to food shape or form) (e.g. melted, crushed, diced)
+ * @param gramWeight The weight of the measure in grams
+ * @param dataPoints The number of observations on which the measure is based
+ * @param footnote Comments on any unusual aspects of the measure. Examples might includes caveats on the usage of a measure, or reasons why a measure gram weight is an unexpected value.
  */
-case class BrandedFoodObjectDietLabelsVegetarian (
-  name: Option[String],
-  isCompatible: Option[Boolean],
-  compatibilityLevel: Option[Integer],
-  confidence: Option[Integer],
-  confidenceDescription: Option[String]
+case class IngredientObjectPortions (
+  measurementUnit: Option[String],
+  description: Option[String],
+  modifier: Option[String],
+  gramWeight: Option[BigDecimal],
+  dataPoints: Option[Integer],
+  footnote: Option[String]
 )
 

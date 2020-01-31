@@ -12,21 +12,22 @@
 
 package io.swagger.client.model
 
+import java.math.BigDecimal
 
 /**
- * An object containing information on this item's compatibility with Vegetarian diets
+ * An object containing information on a specific component of this food item
  *
- * @param name Diet name
- * @param isCompatible Boolean describing if this item is compatible with this diet
- * @param compatibilityLevel Numeric representation of how compatible this item is with this diet. Higher values indicate more compatibility
- * @param confidence Boolean that indicates if we are confident in how this item is graded for this diet
- * @param confidenceDescription Description of our confidence that this item was graded correctly
+ * @param name The kind of component, e.g. bone
+ * @param pctWeight The weight of the component as a percentage of the total weight of the food
+ * @param gramWeight The weight of the component in grams
+ * @param isRefuse Whether the component is refuse, i.e. not edible
+ * @param dataPoints The number of obersvations on which the measure is based
  */
-case class BrandedFoodObjectDietLabelsVegetarian (
+case class IngredientObjectComponents (
   name: Option[String],
-  isCompatible: Option[Boolean],
-  compatibilityLevel: Option[Integer],
-  confidence: Option[Integer],
-  confidenceDescription: Option[String]
+  pctWeight: Option[BigDecimal],
+  gramWeight: Option[BigDecimal],
+  isRefuse: Option[Boolean],
+  dataPoints: Option[Integer]
 )
 

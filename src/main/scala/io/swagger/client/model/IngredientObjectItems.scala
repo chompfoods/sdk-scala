@@ -1,6 +1,6 @@
 /**
  * Chomp Food Database API Documentation
- * __Important:__   - An __[API key](https://chompthis.com/api/)__ is required for access to this API.   - Get yours at __[https://chompthis.com/api](https://chompthis.com/api/)__.  -----  __Getting Started:__   - __[Subscribe](https://chompthis.com/api/#pricing)__ to the API.   - Scroll down and click the \"__Authorize__\" button.   - Enter your API key into the \"__value__\" input, click the \"__Authorize__\" button, then click the \"__Close__\" button.   - Scroll down to the section titled \"__default__\" and click on the API endpoint you wish to use.   - Click the \"__Try it out__\" button.   - Enter the information the endpoint requires.   - Click the \"__Execute__\" button.  __Example:__    - __[View example](https://raw.githubusercontent.com/chompfoods/examples/master/response-object.json)__ API response object.  -----  __How Do I Find My API Key?__   - Your API key was sent to the email address you used to create your subscription.   - You will also find your API key in the __[Client Center](https://chompthis.com/api/manage.php)__.   - _Read __[this article](https://desk.zoho.com/portal/chompthis/kb/articles/how-do-i-find-my-api-key)__ for more information._  ||| | ------- | -------- | | [Knowledge Base](https://desk.zoho.com/portal/chompthis/kb/chomp) | [Pricing](https://chompthis.com/api/) | | [Attribution](https://chompthis.com/api/docs/attribution.php) | [Cost Calculator](https://chompthis.com/api/cost-calculator.php) | | [Terms & License](https://chompthis.com/api/terms.php) | [Database Search](https://chompthis.com/api/lookup.php) | | [Support](https://chompthis.com/api/ticket-new.php) | [Query Builder](https://chompthis.com/api/build.php) | | [Client Center](https://chompthis.com/api/manage.php) | | 
+ * ## Important An **[API key](https://chompthis.com/api/)** is required for access to this API. Get yours at **[https://chompthis.com/api](https://chompthis.com/api/)**.  ### Getting Started   * **[Subscribe](https://chompthis.com/api/#pricing)** to the API.   * Scroll down and click the \"**Authorize**\" button.   * Enter your API key into the \"**value**\" input, click the \"**Authorize**\" button, then click the \"**Close**\" button.   * Scroll down to the section titled \"**default**\" and click on the API endpoint you wish to use.   * Click the \"**Try it out**\" button.   * Enter the information the endpoint requires.   * Click the \"**Execute**\" button.  ### Example    * Branded food response object: **[View example &raquo;](https://raw.githubusercontent.com/chompfoods/examples/master/branded-food-response-object.json)**   * Ingredient response object: **[View example &raquo;](https://raw.githubusercontent.com/chompfoods/examples/master/ingredient-response-object.json)**   * Error response object: **[View example &raquo;](https://raw.githubusercontent.com/chompfoods/examples/master/error-response-object.json)**  ### How Do I Find My API Key?   * Your API key was sent to the email address you used to create your subscription.   * You will also find your API key in the **[Client Center](https://chompthis.com/api/manage.php)**.   * Read **[this article](https://desk.zoho.com/portal/chompthis/kb/articles/how-do-i-find-my-api-key)** for more information.  ### Helpful Links   * **Help & Support**     * [Knowledge Base &raquo;](https://desk.zoho.com/portal/chompthis/kb/chomp)     * [Support &raquo;](https://chompthis.com/api/ticket-new.php)     * [Client Center &raquo;](https://chompthis.com/api/manage.php)   * **Pricing**     * [Subscription Options &raquo;](https://chompthis.com/api/)     * [Cost Calculator &raquo;](https://chompthis.com/api/cost-calculator.php)   * **Guidelines**     * [Terms & License &raquo;](https://chompthis.com/api/terms.php)     * [Attribution &raquo;](https://chompthis.com/api/docs/attribution.php) 
  *
  * OpenAPI spec version: 1.0.0-oas3
  * 
@@ -19,27 +19,27 @@ import java.math.BigDecimal
  *
  * @param name Item name as provided by brand owner or as shown on packaging
  * @param categories 
- * @param nutrients 
+ * @param nutrients An array containing nutrient informatio objects for this food item
  * @param calorieConversionFactor 
  * @param proteinConversionFactor The multiplication factor used to calculate protein from nitrogen
- * @param dietLabels 
  * @param components An array of objects containing the constituent parts of a food (e.g. bone is a component of meat)
  * @param portions An array of objects containing information on discrete amounts of a food found in this item
- * @param commonName Common names associated with this item. These generally clarify what the item is (e.g. when the brand name is \"BRAND's Spicy Enchilada\" the common name may be \"Chicken enchilada\")
- * @param description A description of this item
- * @param footnote Comments on any unusual aspects of this item. Examples might include unusual aspects of the food overall.
+ * @param commonName Common name associated with this item. These generally clarify what the item is (e.g. when the brand name is \"BRAND's Spicy Enchilada\" the common name may be \"Chicken enchilada\")
+ * @param footnote Comments on any unusual aspects of this item. Examples might include unusual aspects of the food overall
+ * @param searchTerm The original search term that found this food item
+ * @param score A value that represents how similar the name of this food item is to the original search term. The lower the value the closer this item's name is to the original search term.
  */
 case class IngredientObjectItems (
   name: Option[String],
   categories: Option[List[String]],
-  nutrients: Option[IngredientObject_nutrients],
-  calorieConversionFactor: Option[BrandedFoodObject_calorie_conversion_factor],
+  nutrients: Option[List[IngredientObject_nutrients]],
+  calorieConversionFactor: Option[IngredientObject_calorie_conversion_factor],
   proteinConversionFactor: Option[BigDecimal],
-  dietLabels: Option[BrandedFoodObject_diet_labels],
-  components: Option[List[BrandedFoodObject_components]],
-  portions: Option[List[BrandedFoodObject_portions]],
+  components: Option[List[IngredientObject_components]],
+  portions: Option[List[IngredientObject_portions]],
   commonName: Option[String],
-  description: Option[String],
-  footnote: Option[String]
+  footnote: Option[String],
+  searchTerm: Option[String],
+  score: Option[String]
 )
 

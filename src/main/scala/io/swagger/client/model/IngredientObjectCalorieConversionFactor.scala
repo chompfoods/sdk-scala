@@ -12,21 +12,18 @@
 
 package io.swagger.client.model
 
+import java.math.BigDecimal
 
 /**
- * An object containing information on this item's compatibility with Vegetarian diets
+ * An object containing the multiplication factors to be used when calculating energy from macronutrients for a specific food.
  *
- * @param name Diet name
- * @param isCompatible Boolean describing if this item is compatible with this diet
- * @param compatibilityLevel Numeric representation of how compatible this item is with this diet. Higher values indicate more compatibility
- * @param confidence Boolean that indicates if we are confident in how this item is graded for this diet
- * @param confidenceDescription Description of our confidence that this item was graded correctly
+ * @param proteinValue The multiplication factor for protein
+ * @param fatValue The multiplication factor for fat
+ * @param carbohydrateValue The multiplication factor for carbohydrates
  */
-case class BrandedFoodObjectDietLabelsVegetarian (
-  name: Option[String],
-  isCompatible: Option[Boolean],
-  compatibilityLevel: Option[Integer],
-  confidence: Option[Integer],
-  confidenceDescription: Option[String]
+case class IngredientObjectCalorieConversionFactor (
+  proteinValue: Option[BigDecimal],
+  fatValue: Option[BigDecimal],
+  carbohydrateValue: Option[BigDecimal]
 )
 

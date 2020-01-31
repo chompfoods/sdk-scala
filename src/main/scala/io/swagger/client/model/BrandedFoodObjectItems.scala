@@ -1,6 +1,6 @@
 /**
  * Chomp Food Database API Documentation
- * __Important:__   - An __[API key](https://chompthis.com/api/)__ is required for access to this API.   - Get yours at __[https://chompthis.com/api](https://chompthis.com/api/)__.  -----  __Getting Started:__   - __[Subscribe](https://chompthis.com/api/#pricing)__ to the API.   - Scroll down and click the \"__Authorize__\" button.   - Enter your API key into the \"__value__\" input, click the \"__Authorize__\" button, then click the \"__Close__\" button.   - Scroll down to the section titled \"__default__\" and click on the API endpoint you wish to use.   - Click the \"__Try it out__\" button.   - Enter the information the endpoint requires.   - Click the \"__Execute__\" button.  __Example:__    - __[View example](https://raw.githubusercontent.com/chompfoods/examples/master/response-object.json)__ API response object.  -----  __How Do I Find My API Key?__   - Your API key was sent to the email address you used to create your subscription.   - You will also find your API key in the __[Client Center](https://chompthis.com/api/manage.php)__.   - _Read __[this article](https://desk.zoho.com/portal/chompthis/kb/articles/how-do-i-find-my-api-key)__ for more information._  ||| | ------- | -------- | | [Knowledge Base](https://desk.zoho.com/portal/chompthis/kb/chomp) | [Pricing](https://chompthis.com/api/) | | [Attribution](https://chompthis.com/api/docs/attribution.php) | [Cost Calculator](https://chompthis.com/api/cost-calculator.php) | | [Terms & License](https://chompthis.com/api/terms.php) | [Database Search](https://chompthis.com/api/lookup.php) | | [Support](https://chompthis.com/api/ticket-new.php) | [Query Builder](https://chompthis.com/api/build.php) | | [Client Center](https://chompthis.com/api/manage.php) | | 
+ * ## Important An **[API key](https://chompthis.com/api/)** is required for access to this API. Get yours at **[https://chompthis.com/api](https://chompthis.com/api/)**.  ### Getting Started   * **[Subscribe](https://chompthis.com/api/#pricing)** to the API.   * Scroll down and click the \"**Authorize**\" button.   * Enter your API key into the \"**value**\" input, click the \"**Authorize**\" button, then click the \"**Close**\" button.   * Scroll down to the section titled \"**default**\" and click on the API endpoint you wish to use.   * Click the \"**Try it out**\" button.   * Enter the information the endpoint requires.   * Click the \"**Execute**\" button.  ### Example    * Branded food response object: **[View example &raquo;](https://raw.githubusercontent.com/chompfoods/examples/master/branded-food-response-object.json)**   * Ingredient response object: **[View example &raquo;](https://raw.githubusercontent.com/chompfoods/examples/master/ingredient-response-object.json)**   * Error response object: **[View example &raquo;](https://raw.githubusercontent.com/chompfoods/examples/master/error-response-object.json)**  ### How Do I Find My API Key?   * Your API key was sent to the email address you used to create your subscription.   * You will also find your API key in the **[Client Center](https://chompthis.com/api/manage.php)**.   * Read **[this article](https://desk.zoho.com/portal/chompthis/kb/articles/how-do-i-find-my-api-key)** for more information.  ### Helpful Links   * **Help & Support**     * [Knowledge Base &raquo;](https://desk.zoho.com/portal/chompthis/kb/chomp)     * [Support &raquo;](https://chompthis.com/api/ticket-new.php)     * [Client Center &raquo;](https://chompthis.com/api/manage.php)   * **Pricing**     * [Subscription Options &raquo;](https://chompthis.com/api/)     * [Cost Calculator &raquo;](https://chompthis.com/api/cost-calculator.php)   * **Guidelines**     * [Terms & License &raquo;](https://chompthis.com/api/terms.php)     * [Attribution &raquo;](https://chompthis.com/api/docs/attribution.php) 
  *
  * OpenAPI spec version: 1.0.0-oas3
  * 
@@ -12,7 +12,6 @@
 
 package io.swagger.client.model
 
-import java.math.BigDecimal
 
 /**
  * An object containing information for this specific item.
@@ -20,18 +19,14 @@ import java.math.BigDecimal
  * @param barcode EAN/UPC barcode
  * @param name Item name as provided by brand owner or as shown on packaging
  * @param brand The brand name that owns this item
- * @param ingredients Ingredients in order of highest value to least
+ * @param ingredients This food item's ingredients from greatest quantity to least
  * @param `package` 
  * @param serving 
  * @param categories 
- * @param nutrients 
- * @param calorieConversionFactor 
- * @param proteinConversionFactor The multiplication factor used to calculate protein from nitrogen
+ * @param nutrients An array containing nutrient informatio objects for this food item
  * @param dietLabels 
  * @param dietFlags An array of ingredient objects that were flagged while grading this item for compatibility with each diet
  * @param packagingPhotos 
- * @param components An array of objects containing the constituent parts of a food (e.g. bone is a component of meat)
- * @param portions An array of objects containing information on discrete amounts of a food found in this item
  * @param allergens An array of ingredients in this item that may cause allergic reactions in people
  * @param brandList An array of brands we have associated with this item. Some items are sold by more than 1 brand.
  * @param countries An array of countries where this item is sold
@@ -41,10 +36,9 @@ import java.math.BigDecimal
  * @param hasEnglishIngredients A boolean indicating if we have English ingredients for this item
  * @param minerals An array of minerals that this item contains
  * @param traces An array of trace ingredients that may be found in this item
- * @param commonName Common names associated with this item. These generally clarify what the item is (e.g. when the brand name is \"BRAND's Spicy Enchilada\" the common name may be \"Chicken enchilada\")
+ * @param vitamins An array of vitamins that are found in this item
  * @param description A description of this item
  * @param keywords An array of keywords that can be used to describe this item
- * @param footnote Comments on any unusual aspects of this item. Examples might include unusual aspects of the food overall.
  */
 case class BrandedFoodObjectItems (
   barcode: Option[String],
@@ -54,14 +48,10 @@ case class BrandedFoodObjectItems (
   `package`: Option[BrandedFoodObject_package],
   serving: Option[BrandedFoodObject_serving],
   categories: Option[List[String]],
-  nutrients: Option[BrandedFoodObject_nutrients],
-  calorieConversionFactor: Option[BrandedFoodObject_calorie_conversion_factor],
-  proteinConversionFactor: Option[BigDecimal],
+  nutrients: Option[List[BrandedFoodObject_nutrients]],
   dietLabels: Option[BrandedFoodObject_diet_labels],
   dietFlags: Option[List[BrandedFoodObject_diet_flags]],
   packagingPhotos: Option[BrandedFoodObject_packaging_photos],
-  components: Option[List[BrandedFoodObject_components]],
-  portions: Option[List[BrandedFoodObject_portions]],
   allergens: Option[List[String]],
   brandList: Option[List[String]],
   countries: Option[List[String]],
@@ -71,9 +61,8 @@ case class BrandedFoodObjectItems (
   hasEnglishIngredients: Option[Boolean],
   minerals: Option[List[String]],
   traces: Option[List[String]],
-  commonName: Option[String],
+  vitamins: Option[List[String]],
   description: Option[String],
-  keywords: Option[List[String]],
-  footnote: Option[String]
+  keywords: Option[List[String]]
 )
 
