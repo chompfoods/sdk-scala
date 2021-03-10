@@ -13,15 +13,33 @@ package io.swagger.client.model
 
 
 /**
- * A object containing a collection of photos of this item's packaging
+ * An object containing information for this specific item.
  *
- * @param front 
- * @param nutrition 
- * @param ingredients 
+ * @param id Unique recipe ID
+ * @param title Recipe title
+ * @param meta 
+ * @param categories 
+ * @param author The author of this recipe. You must attribute this author when displaying this recipe.
+ * @param keywords 
+ * @param topics 
+ * @param attributes 
+ * @param ingredients An array containing this recipe's ingredients
+ * @param baseIngredients 
+ * @param nutrients 
+ * @param diabeticExchanges 
  */
-case class BrandedFoodObjectPackagingPhotos (
-  front: Option[BrandedFoodObject_packaging_photos_front] = None,
-  nutrition: Option[BrandedFoodObject_packaging_photos_nutrition] = None,
-  ingredients: Option[BrandedFoodObject_packaging_photos_ingredients] = None
+case class RecipeObjectItems (
+  id: Option[String] = None,
+  title: Option[String] = None,
+  meta: Option[RecipeObject_meta] = None,
+  categories: Option[List[String]] = None,
+  author: Option[String] = None,
+  keywords: Option[List[String]] = None,
+  topics: Option[List[String]] = None,
+  attributes: Option[RecipeObject_attributes] = None,
+  ingredients: Option[List[RecipeObject_ingredients]] = None,
+  baseIngredients: Option[List[String]] = None,
+  nutrients: Option[RecipeObject_nutrients] = None,
+  diabeticExchanges: Option[List[String]] = None
 )
 

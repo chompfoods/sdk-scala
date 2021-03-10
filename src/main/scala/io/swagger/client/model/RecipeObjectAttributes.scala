@@ -13,15 +13,17 @@ package io.swagger.client.model
 
 
 /**
- * A object containing a collection of photos of this item's packaging
+ * An object containing recipe attributes
  *
- * @param front 
- * @param nutrition 
- * @param ingredients 
+ * @param prepTime The time it takes to prep this recipe
+ * @param totalTime The total time it takes to make this recipe
+ * @param servings The number of servings this recipe makes
+ * @param servingSize The size of each serving
  */
-case class BrandedFoodObjectPackagingPhotos (
-  front: Option[BrandedFoodObject_packaging_photos_front] = None,
-  nutrition: Option[BrandedFoodObject_packaging_photos_nutrition] = None,
-  ingredients: Option[BrandedFoodObject_packaging_photos_ingredients] = None
+case class RecipeObjectAttributes (
+  prepTime: Option[String] = None,
+  totalTime: Option[String] = None,
+  servings: Option[String] = None,
+  servingSize: Option[String] = None
 )
 

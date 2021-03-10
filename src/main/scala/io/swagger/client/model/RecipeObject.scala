@@ -13,15 +13,11 @@ package io.swagger.client.model
 
 
 /**
- * A object containing a collection of photos of this item's packaging
+ * Please read the description of each field in this API response object example. By default, the value of each field is **null**. This indicates an unknown state or that no data exists.
  *
- * @param front 
- * @param nutrition 
- * @param ingredients 
+ * @param items An array containing an object for each individual item returned by your API call.
  */
-case class BrandedFoodObjectPackagingPhotos (
-  front: Option[BrandedFoodObject_packaging_photos_front] = None,
-  nutrition: Option[BrandedFoodObject_packaging_photos_nutrition] = None,
-  ingredients: Option[BrandedFoodObject_packaging_photos_ingredients] = None
+case class RecipeObject (
+  items: Option[List[RecipeObject_items]] = None
 )
 

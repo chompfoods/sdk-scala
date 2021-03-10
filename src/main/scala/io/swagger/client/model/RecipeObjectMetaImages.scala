@@ -13,15 +13,23 @@ package io.swagger.client.model
 
 
 /**
- * A object containing a collection of photos of this item's packaging
+ * An object containing this recipe's image URLs
  *
- * @param front 
- * @param nutrition 
- * @param ingredients 
+ * @param extraLarge Extra large recipe image
+ * @param large Large recipe image
+ * @param standard Standard recipe image
+ * @param gridView Grid view recipe image
+ * @param small Small recipe image
+ * @param thumbnail Thumbnail recipe image
+ * @param extraSmall Extra small recipe image
  */
-case class BrandedFoodObjectPackagingPhotos (
-  front: Option[BrandedFoodObject_packaging_photos_front] = None,
-  nutrition: Option[BrandedFoodObject_packaging_photos_nutrition] = None,
-  ingredients: Option[BrandedFoodObject_packaging_photos_ingredients] = None
+case class RecipeObjectMetaImages (
+  extraLarge: Option[String] = None,
+  large: Option[String] = None,
+  standard: Option[String] = None,
+  gridView: Option[String] = None,
+  small: Option[String] = None,
+  thumbnail: Option[String] = None,
+  extraSmall: Option[String] = None
 )
 

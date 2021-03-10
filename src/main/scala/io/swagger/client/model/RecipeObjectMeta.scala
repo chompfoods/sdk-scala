@@ -13,15 +13,23 @@ package io.swagger.client.model
 
 
 /**
- * A object containing a collection of photos of this item's packaging
+ * An object containing this item's compatibility grades for each supported diet
  *
- * @param front 
- * @param nutrition 
- * @param ingredients 
+ * @param url URL to the recipe. You must link back to the recipe when displaying it.
+ * @param images 
+ * @param source The source of the recipe. You must attribute this source when displaying this recipe.
+ * @param cuisine This recipe's cuisine
+ * @param created The date when this recipe was created
+ * @param modified The date when this recipe was most recently modified
+ * @param nutrientsNotice Additional information about this recipe's nutrients
  */
-case class BrandedFoodObjectPackagingPhotos (
-  front: Option[BrandedFoodObject_packaging_photos_front] = None,
-  nutrition: Option[BrandedFoodObject_packaging_photos_nutrition] = None,
-  ingredients: Option[BrandedFoodObject_packaging_photos_ingredients] = None
+case class RecipeObjectMeta (
+  url: Option[String] = None,
+  images: Option[RecipeObject_meta_images] = None,
+  source: Option[String] = None,
+  cuisine: Option[String] = None,
+  created: Option[String] = None,
+  modified: Option[String] = None,
+  nutrientsNotice: Option[String] = None
 )
 

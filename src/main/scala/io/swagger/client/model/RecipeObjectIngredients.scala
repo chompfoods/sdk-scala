@@ -13,15 +13,13 @@ package io.swagger.client.model
 
 
 /**
- * A object containing a collection of photos of this item's packaging
+ * An object containing information about a specific recipe ingredient
  *
- * @param front 
- * @param nutrition 
- * @param ingredients 
+ * @param quantity The quantity of this ingredient
+ * @param description A description of this ingredient
  */
-case class BrandedFoodObjectPackagingPhotos (
-  front: Option[BrandedFoodObject_packaging_photos_front] = None,
-  nutrition: Option[BrandedFoodObject_packaging_photos_nutrition] = None,
-  ingredients: Option[BrandedFoodObject_packaging_photos_ingredients] = None
+case class RecipeObjectIngredients (
+  quantity: Option[String] = None,
+  description: Option[String] = None
 )
 

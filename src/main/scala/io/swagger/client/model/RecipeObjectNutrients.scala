@@ -13,15 +13,19 @@ package io.swagger.client.model
 
 
 /**
- * A object containing a collection of photos of this item's packaging
+ * An object containing nutrient information for this recipe
  *
- * @param front 
- * @param nutrition 
- * @param ingredients 
+ * @param calories An array containing information for calories found in this recipe
+ * @param dailyValues An array containing information for this recipe's daily recommended value of certain nutrients
+ * @param fat An array containing information for fat found in this recipe
+ * @param carbs An array containing information for carbs found in this recipe
+ * @param vitamins An array containing information for vitamins found in this recipe
  */
-case class BrandedFoodObjectPackagingPhotos (
-  front: Option[BrandedFoodObject_packaging_photos_front] = None,
-  nutrition: Option[BrandedFoodObject_packaging_photos_nutrition] = None,
-  ingredients: Option[BrandedFoodObject_packaging_photos_ingredients] = None
+case class RecipeObjectNutrients (
+  calories: Option[List[RecipeObject_nutrients_calories]] = None,
+  dailyValues: Option[List[RecipeObject_nutrients_calories]] = None,
+  fat: Option[List[RecipeObject_nutrients_calories]] = None,
+  carbs: Option[List[RecipeObject_nutrients_calories]] = None,
+  vitamins: Option[List[RecipeObject_nutrients_calories]] = None
 )
 

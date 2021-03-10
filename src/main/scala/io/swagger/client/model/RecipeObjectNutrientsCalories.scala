@@ -13,15 +13,13 @@ package io.swagger.client.model
 
 
 /**
- * A object containing a collection of photos of this item's packaging
- *
- * @param front 
- * @param nutrition 
- * @param ingredients 
+ * @param title Nutrient name
+ * @param value The amount of this nutrient in this recipe
+ * @param percent The daily recommended percent total for this nutrient
  */
-case class BrandedFoodObjectPackagingPhotos (
-  front: Option[BrandedFoodObject_packaging_photos_front] = None,
-  nutrition: Option[BrandedFoodObject_packaging_photos_nutrition] = None,
-  ingredients: Option[BrandedFoodObject_packaging_photos_ingredients] = None
+case class RecipeObjectNutrientsCalories (
+  title: Option[String] = None,
+  value: Option[String] = None,
+  percent: Option[String] = None
 )
 
